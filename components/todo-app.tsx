@@ -58,11 +58,6 @@ export function TodoApp() {
 
   return (
     <div className="flex flex-col gap-4 rounded-2xl border bg-card p-4 shadow-sm">
-      <p className="text-xs text-muted-foreground">
-        {canSave
-          ? "할 일은 이 브라우저에 저장됩니다"
-          : "이 브라우저에서는 할 일이 저장되지 않습니다"}
-      </p>
       <Input
         value={draft}
         onChange={(e) => setDraft(e.target.value)}
@@ -94,6 +89,11 @@ export function TodoApp() {
           </div>
         </div>
       )}
+      <p className="text-xs text-muted-foreground">
+        {canSave
+          ? "할 일은 이 브라우저에 저장됩니다"
+          : "이 브라우저에서는 할 일이 저장되지 않습니다"}
+      </p>
       <Tabs value={filter} onValueChange={(v) => setFilter(v as Filter)}>
         <TabsList aria-label="필터">
           {FILTERS.map(({ value, label }) => (
